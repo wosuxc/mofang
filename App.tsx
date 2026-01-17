@@ -93,15 +93,15 @@ const Navbar: React.FC = () => {
             onMouseEnter={() => setShowDropdown(true)}
             onMouseLeave={() => setShowDropdown(false)}
           >
-            <button onClick={() => scrollToSection('products')} className="flex items-center space-x-1 hover:text-coral transition-colors py-2 text-gray-800">
+            <button onClick={() => scrollToSection('products')} className="flex items-center space-x-1 hover:text-pink-brand transition-colors py-2 text-gray-800">
               <span>产品</span>
               <ChevronDown size={14} className={`transition-transform duration-300 ${showDropdown ? 'rotate-180' : ''}`} />
             </button>
             {showDropdown && (
-              <div className="absolute top-full left-0 w-44 bg-white/95 backdrop-blur-md shadow-2xl py-4 mt-0 border border-pink-50 rounded-xl animate-in fade-in zoom-in-95 duration-200">
-                <button onClick={() => scrollToSection('doudouniao')} className="w-full text-left px-6 py-2.5 hover:bg-rose-50 hover:text-coral transition-colors text-gray-700">逗豆鸟</button>
-                <button onClick={() => scrollToSection('xiaohaibao')} className="w-full text-left px-6 py-2.5 hover:bg-rose-50 hover:text-coral transition-colors text-gray-700">小海豹</button>
-                <button onClick={() => scrollToSection('products')} className="w-full text-left px-6 py-2.5 hover:bg-rose-50 hover:text-coral transition-colors text-gray-700 border-t border-rose-50">全部产品</button>
+              <div className="absolute top-full left-0 w-44 bg-white/98 backdrop-blur-md shadow-2xl py-4 mt-0 border border-pink-50 rounded-xl animate-in fade-in zoom-in-95 duration-200">
+                <button onClick={() => scrollToSection('doudouniao')} className="w-full text-left px-6 py-2.5 hover:bg-rose-50 hover:text-pink-brand transition-colors text-gray-700">逗豆鸟</button>
+                <button onClick={() => scrollToSection('xiaohaibao')} className="w-full text-left px-6 py-2.5 hover:bg-rose-50 hover:text-pink-brand transition-colors text-gray-700">小海豹</button>
+                <button onClick={() => scrollToSection('products')} className="w-full text-left px-6 py-2.5 hover:bg-rose-50 hover:text-pink-brand transition-colors text-gray-700 border-t border-rose-50">全部产品</button>
               </div>
             )}
           </div>
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
             href={TMALL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-coral text-white px-7 py-2.5 rounded-full shadow-lg shadow-coral/20 hover:opacity-90 hover:scale-105 transition-all text-center inline-block"
+            className="bg-pink-brand text-white px-7 py-2.5 rounded-full shadow-lg shadow-pink-brand hover:opacity-90 hover:scale-105 transition-all text-center inline-block"
           >
             官方商城
           </a>
@@ -127,14 +127,14 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-white absolute top-full left-0 w-full border-t border-pink-50 py-8 px-8 space-y-6 shadow-2xl">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="block text-xl font-medium text-gray-900 text-left w-full">首页</button>
           <button onClick={() => scrollToSection('about')} className="block text-xl font-medium text-gray-900 text-left w-full">关于墨放</button>
-          <div className="space-y-3 pl-4 border-l-2 border-rose-100">
+          <div className="space-y-3 pl-4 border-l-2 border-pink-100">
             <span className="text-gray-400 text-xs font-bold uppercase tracking-widest">产品目录</span>
             <button onClick={() => scrollToSection('doudouniao')} className="block text-gray-700 py-1 text-left w-full">逗豆鸟</button>
             <button onClick={() => scrollToSection('xiaohaibao')} className="block text-gray-700 py-1 text-left w-full">小海豹</button>
             <button onClick={() => scrollToSection('products')} className="block text-gray-700 py-1 text-left w-full">全部产品系列</button>
           </div>
           <button onClick={() => scrollToSection('anti-counterfeit')} className="block text-xl font-medium text-gray-900 text-left w-full">防伪查询</button>
-          <a href={TMALL_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-coral text-white py-4 rounded-full font-bold shadow-xl shadow-coral/20 text-center">官方商城</a>
+          <a href={TMALL_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-pink-brand text-white py-4 rounded-full font-bold shadow-xl shadow-pink-brand text-center">官方商城</a>
         </div>
       )}
     </nav>
@@ -143,7 +143,7 @@ const Navbar: React.FC = () => {
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative pt-32 pb-24 md:pb-32 overflow-hidden bg-rose-50/20">
+    <section id="home" className="relative pt-32 pb-24 md:pb-32 overflow-hidden bg-rose-50/30">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div className="relative group">
           <div className="bg-white p-2 rounded-3xl shadow-2xl border border-white/50">
@@ -154,17 +154,17 @@ const Hero: React.FC = () => {
                 onClick={() => window.open(TMALL_URL, '_blank')}
               >
                 <div className="w-20 h-20 bg-white/95 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                  <Play fill="#FF5A5F" size={28} className="text-coral" />
+                  <Play fill="#FF6B9D" size={28} className="text-pink-brand" />
                 </div>
               </div>
             </div>
           </div>
-          <div className="absolute -z-10 -bottom-12 -left-12 w-64 h-64 bg-rose-200/30 rounded-full blur-3xl opacity-60"></div>
+          <div className="absolute -z-10 -bottom-12 -left-12 w-64 h-64 bg-pink-100/50 rounded-full blur-3xl opacity-60 animate-pulse"></div>
         </div>
 
         <div className="space-y-10">
           <div className="space-y-4">
-            <span className="text-coral font-bold tracking-[0.3em] text-sm uppercase">Original Design</span>
+            <span className="text-pink-brand font-bold tracking-[0.3em] text-sm uppercase">Original Design</span>
             <h2 className="text-6xl md:text-7xl font-bold tracking-tight text-gray-900 leading-[1.1]">WHO WE ARE.</h2>
           </div>
           <div className="space-y-6 text-gray-600 leading-relaxed text-lg max-w-lg">
@@ -174,22 +174,23 @@ const Hero: React.FC = () => {
           </div>
           <div className="flex space-x-16 pt-4">
             <div className="group cursor-default">
-              <div className="text-3xl font-bold text-gray-900 group-hover:text-coral transition-colors">2019</div>
+              <div className="text-3xl font-bold text-gray-900 group-hover:text-pink-brand transition-colors">2019</div>
               <div className="text-xs text-gray-400 uppercase tracking-widest mt-2">Founded</div>
             </div>
             <div className="group cursor-default">
-              <div className="text-3xl font-bold text-gray-900 group-hover:text-coral transition-colors">1.5M+</div>
+              <div className="text-3xl font-bold text-gray-900 group-hover:text-pink-brand transition-colors">1.5M+</div>
               <div className="text-xs text-gray-400 uppercase tracking-widest mt-2">Users</div>
             </div>
             <div className="group cursor-default">
-              <div className="text-3xl font-bold text-gray-900 group-hover:text-coral transition-colors">8</div>
+              <div className="text-3xl font-bold text-gray-900 group-hover:text-pink-brand transition-colors">8</div>
               <div className="text-xs text-gray-400 uppercase tracking-widest mt-2">Awards</div>
             </div>
           </div>
         </div>
       </div>
       
-      <div className="absolute -bottom-16 right-0 opacity-[0.03] text-[22vw] font-black pointer-events-none select-none leading-none tracking-tighter uppercase">
+      {/* Background Watermark */}
+      <div className="absolute -bottom-16 right-0 opacity-[0.04] text-[22vw] font-black pointer-events-none select-none leading-none tracking-tighter uppercase text-pink-brand">
         MOFANG
       </div>
     </section>
@@ -203,9 +204,9 @@ const BrandPhilosophy: React.FC = () => {
         <div className="md:w-1/2 space-y-10 order-2 md:order-1">
           <div className="space-y-4">
             <h3 className="text-5xl font-bold text-gray-900">墨放</h3>
-            <h4 className="text-2xl text-rose-300 font-light tracking-wide">成年人世界里的一点甜</h4>
+            <h4 className="text-2xl text-pink-300 font-light tracking-wide">成年人世界里的一点甜</h4>
           </div>
-          <div className="w-20 h-1 bg-coral rounded-full"></div>
+          <div className="w-20 h-1 bg-pink-brand rounded-full"></div>
           <div className="space-y-8 text-gray-600 leading-loose tracking-wide text-lg">
             <p>性与情趣，理应是一点很随意就能获得的甜。<br/>它是轻松、阳光、自然而美好的。</p>
             <p>我们希望性和情趣对每个女生来说，是唾手可得的快乐。<br/>每位新时代女性都应该享有适合自己的情趣生活方式。</p>
@@ -214,20 +215,20 @@ const BrandPhilosophy: React.FC = () => {
           <button onClick={() => {
             const el = document.getElementById('products');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }} className="group flex items-center space-x-3 text-coral font-bold hover:translate-x-2 transition-all">
-            <span className="border-b-2 border-coral/20 group-hover:border-coral transition-all">Explore Our Products</span>
+          }} className="group flex items-center space-x-3 text-pink-brand font-bold hover:translate-x-2 transition-all">
+            <span className="border-b-2 border-pink-brand/20 group-hover:border-pink-brand transition-all">Explore Our Products</span>
             <ArrowRight size={20} />
           </button>
         </div>
         <div className="md:w-1/2 relative group order-1 md:order-2">
-          <div className="relative z-10 p-3 bg-rose-50 rounded-[3rem]">
+          <div className="relative z-10 p-3 bg-pink-50 rounded-[3rem]">
             <img 
               src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?q=80&w=800&auto=format&fit=crop" 
               alt="Brand Concept" 
               className="w-full aspect-[4/5] object-cover rounded-[2.5rem] shadow-2xl group-hover:scale-[1.02] transition-transform duration-1000"
             />
           </div>
-          <div className="absolute -top-10 -right-10 w-48 h-48 bg-rose-100 rounded-full -z-0 blur-3xl opacity-60 animate-pulse"></div>
+          <div className="absolute -top-10 -right-10 w-48 h-48 bg-pink-100 rounded-full -z-0 blur-3xl opacity-60 animate-pulse"></div>
         </div>
       </div>
     </section>
@@ -236,20 +237,20 @@ const BrandPhilosophy: React.FC = () => {
 
 const TimelineSection: React.FC = () => {
   return (
-    <section id="timeline" className="py-32 bg-rose-50/10 scroll-mt-20">
+    <section id="timeline" className="py-32 bg-pink-50/20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center space-y-4 mb-24">
           <h2 className="text-5xl font-bold text-gray-900">发展历程</h2>
-          <p className="text-rose-300 text-xs tracking-[0.5em] uppercase font-bold">Company Timeline</p>
+          <p className="text-pink-400 text-xs tracking-[0.5em] uppercase font-bold">Company Timeline</p>
         </div>
         <div className="grid md:grid-cols-2 gap-16 md:gap-32">
           {TIMELINE.map((item) => (
             <div key={item.year} className="space-y-10 group">
-              <h3 className="text-7xl font-black text-rose-100 group-hover:text-coral/20 transition-colors duration-700">{item.year}</h3>
-              <ul className="space-y-6 relative border-l-2 border-rose-100 pl-8 ml-4">
+              <h3 className="text-7xl font-black text-pink-100 group-hover:text-pink-brand/20 transition-colors duration-700">{item.year}</h3>
+              <ul className="space-y-6 relative border-l-2 border-pink-200 pl-8 ml-4">
                 {item.events.map((event, idx) => (
                   <li key={idx} className="flex items-start text-sm group/item">
-                    <span className="absolute left-[-9px] w-4 h-4 rounded-full bg-white border-2 border-rose-200 mt-1 group-hover/item:border-coral group-hover/item:scale-125 transition-all"></span>
+                    <span className="absolute left-[-9px] w-4 h-4 rounded-full bg-white border-2 border-pink-300 mt-1 group-hover/item:border-pink-brand group-hover/item:scale-125 transition-all"></span>
                     <span className="text-gray-600 group-hover/item:text-black transition-colors leading-relaxed">{event}</span>
                   </li>
                 ))}
@@ -267,7 +268,7 @@ const AwardsSection: React.FC = () => {
     <section id="awards" className="py-32 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-24 items-center">
         <div className="lg:w-1/3 space-y-8 text-center lg:text-left">
-          <h2 className="text-5xl font-bold leading-tight text-gray-900 tracking-tight">国际认可<br/><span className="text-coral">工业设计大奖</span></h2>
+          <h2 className="text-5xl font-bold leading-tight text-gray-900 tracking-tight">国际认可<br/><span className="text-pink-brand">工业设计大奖</span></h2>
           <div className="space-y-3 text-xs text-gray-400 font-mono tracking-wider opacity-80">
             <p>2019.07 - “逗豆鸟”荣获德国红点设计大奖</p>
             <p>2019.10 - “逗豆鸟”荣获台湾金点设计奖</p>
@@ -277,11 +278,11 @@ const AwardsSection: React.FC = () => {
         </div>
         <div className="lg:w-2/3 grid grid-cols-2 gap-8">
           {AWARDS.map((award, idx) => (
-            <div key={idx} className="bg-rose-50/20 p-10 rounded-[2.5rem] border border-white hover:bg-white hover:shadow-2xl transition-all duration-700 flex flex-col items-center justify-center text-center space-y-6 aspect-square group">
+            <div key={idx} className="bg-pink-50/30 p-10 rounded-[2.5rem] border border-white hover:bg-white hover:shadow-2xl hover:shadow-pink-100 transition-all duration-700 flex flex-col items-center justify-center text-center space-y-6 aspect-square group">
               <img src={award.icon} alt={award.title} className="w-24 h-24 object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" />
               <div className="space-y-2">
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-800 leading-tight">{award.title}</p>
-                <p className="text-[10px] text-rose-300 font-medium">{award.year}</p>
+                <p className="text-[10px] text-pink-300 font-medium">{award.year}</p>
               </div>
             </div>
           ))}
@@ -293,33 +294,33 @@ const AwardsSection: React.FC = () => {
 
 const ProductsSection: React.FC = () => {
   return (
-    <section id="products" className="py-32 bg-rose-50/5 scroll-mt-20">
+    <section id="products" className="py-32 bg-pink-50/10 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center space-y-4 mb-32">
           <h2 className="text-6xl font-black text-gray-900 tracking-tighter">OUR PRODUCTS</h2>
-          <p className="text-rose-400 text-sm font-medium tracking-[0.3em] uppercase">Sensual Lifestyle For Asian Women</p>
+          <p className="text-pink-400 text-sm font-medium tracking-[0.3em] uppercase">Sensual Lifestyle For Asian Women</p>
         </div>
         <div className="space-y-48">
           {PRODUCTS.map((product, idx) => (
             <div key={product.id} id={product.id} className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-32 scroll-mt-32`}>
               <div className="lg:w-1/2 group relative cursor-pointer" onClick={() => window.open(TMALL_URL, '_blank')}>
-                <div className="bg-white p-4 rounded-[3.5rem] shadow-2xl border border-rose-50 overflow-hidden">
+                <div className="bg-white p-4 rounded-[3.5rem] shadow-2xl border border-pink-50 overflow-hidden">
                   <img src={product.image} alt={product.name} className="w-full aspect-square object-cover rounded-[3rem] group-hover:scale-105 transition-transform duration-1000" />
                 </div>
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-                  <span className="bg-white/95 text-coral px-10 py-4 rounded-full text-sm font-black shadow-2xl tracking-[0.2em]">立即购买</span>
+                  <span className="bg-white/95 text-pink-brand px-10 py-4 rounded-full text-sm font-black shadow-2xl tracking-[0.2em]">立即购买</span>
                 </div>
               </div>
               <div className="lg:w-1/2 space-y-10 px-4">
                 <div className="space-y-4">
                   <h3 className="text-5xl font-bold text-gray-900 tracking-tight">{product.name}</h3>
-                  <div className="w-24 h-1.5 bg-coral rounded-full"></div>
+                  <div className="w-24 h-1.5 bg-pink-brand rounded-full"></div>
                 </div>
                 <div className="space-y-8">
                   <p className="text-gray-700 leading-relaxed text-lg font-medium">{product.description}</p>
                   <p className="text-gray-400 leading-loose text-base">{product.descriptionDetail}</p>
                 </div>
-                <a href={TMALL_URL} target="_blank" rel="noopener noreferrer" className="px-10 py-4 border-2 border-rose-100 rounded-full text-gray-800 font-bold hover:bg-rose-50 hover:border-coral hover:text-coral transition-all inline-flex items-center space-x-3">
+                <a href={TMALL_URL} target="_blank" rel="noopener noreferrer" className="px-10 py-4 border-2 border-pink-100 rounded-full text-gray-800 font-bold hover:bg-rose-50 hover:border-pink-brand hover:text-pink-brand transition-all inline-flex items-center space-x-3 shadow-pink-brand">
                   <span>在线选购</span>
                   <ArrowRight size={20} />
                 </a>
@@ -346,7 +347,7 @@ const Footer: React.FC = () => {
           <div className="space-y-10">
             <h4 className="text-3xl font-black tracking-tighter cursor-pointer text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>墨放</h4>
             <div className="space-y-5 text-sm text-gray-500 leading-loose">
-              <p className="text-coral font-bold text-base">广州有限公司</p>
+              <p className="text-pink-brand font-bold text-base">广州有限公司</p>
               <p>地址：广州市天河区珠江新城CBD核心商务区<br/>博兴广场 3201室</p>
               <p>电话：020-88888888</p>
             </div>
@@ -354,29 +355,29 @@ const Footer: React.FC = () => {
           <div className="space-y-8">
             <h5 className="font-bold text-sm uppercase tracking-widest text-gray-300">品牌探索</h5>
             <ul className="space-y-5 text-sm text-gray-500">
-              <li><button onClick={() => scrollToSection('about')} className="hover:text-coral transition-colors">关于墨放</button></li>
-              <li><button onClick={() => scrollToSection('timeline')} className="hover:text-coral transition-colors">发展历程</button></li>
-              <li><button onClick={() => alert('跳转到官网动态...')} className="hover:text-coral transition-colors">企业动态</button></li>
+              <li><button onClick={() => scrollToSection('about')} className="hover:text-pink-brand transition-colors text-left">关于墨放</button></li>
+              <li><button onClick={() => scrollToSection('timeline')} className="hover:text-pink-brand transition-colors text-left">发展历程</button></li>
+              <li><button onClick={() => alert('跳转到官网动态...')} className="hover:text-pink-brand transition-colors text-left">企业动态</button></li>
             </ul>
           </div>
           <div className="space-y-8">
             <h5 className="font-bold text-sm uppercase tracking-widest text-gray-300">热门产品</h5>
             <ul className="space-y-5 text-sm text-gray-500">
-              <li><button onClick={() => scrollToSection('doudouniao')} className="hover:text-coral transition-colors">逗豆鸟系列</button></li>
-              <li><button onClick={() => scrollToSection('xiaohaibao')} className="hover:text-coral transition-colors">小海豹系列</button></li>
+              <li><button onClick={() => scrollToSection('doudouniao')} className="hover:text-pink-brand transition-colors text-left">逗豆鸟系列</button></li>
+              <li><button onClick={() => scrollToSection('xiaohaibao')} className="hover:text-pink-brand transition-colors text-left">小海豹系列</button></li>
             </ul>
           </div>
           <div id="anti-counterfeit" className="space-y-8 scroll-mt-24">
             <h5 className="font-bold text-sm uppercase tracking-widest text-gray-300">防伪查询</h5>
             <div className="text-sm text-gray-500 leading-relaxed space-y-6">
               <p>官方渠道购买产品均贴有墨放专属防伪标签。</p>
-              <button onClick={() => alert('跳转到防伪查询系统...')} className="bg-white/5 border border-white/20 px-8 py-3.5 rounded-full hover:bg-coral hover:border-coral transition-all w-full font-bold">立即查询</button>
+              <button onClick={() => alert('跳转到防伪查询系统...')} className="bg-white/5 border border-white/20 px-8 py-3.5 rounded-full hover:bg-pink-brand hover:border-pink-brand transition-all w-full font-bold">立即查询</button>
             </div>
           </div>
         </div>
       </div>
       <div className="py-12 flex flex-col md:flex-row justify-center items-center gap-6 text-[11px] text-gray-600 font-medium tracking-widest uppercase">
-        <a href={TMALL_URL} target="_blank" rel="noopener noreferrer">天猫官方旗舰店</a>
+        <a href={TMALL_URL} target="_blank" rel="noopener noreferrer" className="hover:text-pink-brand transition-colors">天猫官方旗舰店</a>
         <span className="hidden md:inline text-white/10">|</span>
         <span>© 2024 MOFANG LIFESTYLE | 粤ICP备2020097423号</span>
       </div>

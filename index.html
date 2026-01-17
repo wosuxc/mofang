@@ -8,14 +8,21 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      /* 修改为更具品牌感的“大人糖”粉色 */
+      --brand-pink: #FF6B9D;
+      --brand-pink-light: #FFF0F5;
+      --brand-pink-soft: #FFB6C1;
+    }
     body {
       font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
       scroll-behavior: smooth;
       background-color: #ffffff;
     }
-    .text-coral { color: #FF5A5F; }
-    .bg-coral { background-color: #FF5A5F; }
-    .border-coral { border-color: #FF5A5F; }
+    .text-pink-brand { color: var(--brand-pink); }
+    .bg-pink-brand { background-color: var(--brand-pink); }
+    .border-pink-brand { border-color: var(--brand-pink); }
+    .shadow-pink-brand { --tw-shadow-color: rgba(255, 107, 157, 0.2); }
     
     .hover-underline::after {
       content: '';
@@ -24,7 +31,7 @@
       height: 2px;
       bottom: -4px;
       left: 0;
-      background-color: #FF5A5F;
+      background-color: var(--brand-pink);
       transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
     .hover-underline:hover::after {
@@ -35,14 +42,14 @@
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #fdf2f2;
+      background: var(--brand-pink-light);
     }
     ::-webkit-scrollbar-thumb {
-      background: #fecaca;
+      background: var(--brand-pink-soft);
       border-radius: 10px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #FF5A5F;
+      background: var(--brand-pink);
     }
   </style>
 <script type="importmap">
@@ -60,7 +67,7 @@
 </head>
 <body class="bg-white text-black antialiased overflow-x-hidden">
   <div id="root"></div>
-  <!-- 必须显式添加此脚本标签，Vercel 部署后的 Vite 编译器才能识别入口 -->
+  <!-- 使用标准 Vite 入口脚本 -->
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>
