@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Play, Menu, X, ArrowRight, Instagram, Twitter, MessageCircle } from 'lucide-react';
-import { TimelineItem, AwardItem, ProductItem } from './types';
+import type { TimelineItem, AwardItem, ProductItem } from './types.ts';
 
 // --- Constants & Data ---
 
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
           >
             官方商城
           </a>
-          <a href="#" onClick={(e) => { e.preventDefault(); alert('正在筹备海外业务...'); }} className="text-gray-400 hover:text-black transition-colors">海外商城</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); alert('海外版本正在建设中...'); }} className="text-gray-400 hover:text-black transition-colors">海外商城</a>
         </div>
 
         <button className="md:hidden text-gray-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white absolute top-full left-0 w-full border-t border-pink-50 py-8 px-8 space-y-6 shadow-2xl animate-in slide-in-from-top duration-300">
+        <div className="md:hidden bg-white absolute top-full left-0 w-full border-t border-pink-50 py-8 px-8 space-y-6 shadow-2xl">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="block text-xl font-medium text-gray-900 text-left w-full">首页</button>
           <button onClick={() => scrollToSection('about')} className="block text-xl font-medium text-gray-900 text-left w-full">关于墨放</button>
           <div className="space-y-3 pl-4 border-l-2 border-rose-100">
@@ -143,26 +143,19 @@ const Navbar: React.FC = () => {
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative pt-32 pb-24 md:pb-32 overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-rose-100/40 via-white to-rose-50/20 -z-10"></div>
+    <section id="home" className="relative pt-32 pb-24 md:pb-32 overflow-hidden bg-rose-50/20">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div className="relative group">
-          <div className="bg-white p-2 rounded-3xl shadow-2xl overflow-hidden relative border border-white/50">
+          <div className="bg-white p-2 rounded-3xl shadow-2xl border border-white/50">
             <div className="aspect-video rounded-2xl overflow-hidden relative">
               <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop" alt="Mofang Vision" className="w-full h-full object-cover" />
               <div 
                 className="absolute inset-0 bg-black/10 flex items-center justify-center cursor-pointer group-hover:bg-black/20 transition-all"
-                onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}
+                onClick={() => window.open(TMALL_URL, '_blank')}
               >
                 <div className="w-20 h-20 bg-white/95 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
                   <Play fill="#FF5A5F" size={28} className="text-coral" />
                 </div>
-              </div>
-              <div className="absolute bottom-6 left-8 right-8 flex items-center space-x-4">
-                <div className="h-1 flex-1 bg-white/30 rounded-full overflow-hidden">
-                  <div className="h-full bg-coral w-[35%]"></div>
-                </div>
-                <span className="text-white text-xs font-medium tracking-widest drop-shadow-md">0:18 / 0:52</span>
               </div>
             </div>
           </div>
@@ -190,13 +183,12 @@ const Hero: React.FC = () => {
             </div>
             <div className="group cursor-default">
               <div className="text-3xl font-bold text-gray-900 group-hover:text-coral transition-colors">8</div>
-              <div className="text-xs text-gray-400 uppercase tracking-widest mt-2">Design Awards</div>
+              <div className="text-xs text-gray-400 uppercase tracking-widest mt-2">Awards</div>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Background Watermark */}
       <div className="absolute -bottom-16 right-0 opacity-[0.03] text-[22vw] font-black pointer-events-none select-none leading-none tracking-tighter uppercase">
         MOFANG
       </div>
@@ -250,7 +242,6 @@ const TimelineSection: React.FC = () => {
           <h2 className="text-5xl font-bold text-gray-900">发展历程</h2>
           <p className="text-rose-300 text-xs tracking-[0.5em] uppercase font-bold">Company Timeline</p>
         </div>
-        
         <div className="grid md:grid-cols-2 gap-16 md:gap-32">
           {TIMELINE.map((item) => (
             <div key={item.year} className="space-y-10 group">
@@ -284,13 +275,10 @@ const AwardsSection: React.FC = () => {
             <p>2020.12 - “逗豆鸟”荣获中国设计红星奖</p>
           </div>
         </div>
-        
         <div className="lg:w-2/3 grid grid-cols-2 gap-8">
           {AWARDS.map((award, idx) => (
-            <div key={idx} className="bg-rose-50/20 p-10 rounded-[2.5rem] border border-white hover:bg-white hover:shadow-2xl hover:shadow-rose-100 transition-all duration-700 flex flex-col items-center justify-center text-center space-y-6 aspect-square group">
-              <div className="relative">
-                <img src={award.icon} alt={award.title} className="w-24 h-24 object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" />
-              </div>
+            <div key={idx} className="bg-rose-50/20 p-10 rounded-[2.5rem] border border-white hover:bg-white hover:shadow-2xl transition-all duration-700 flex flex-col items-center justify-center text-center space-y-6 aspect-square group">
+              <img src={award.icon} alt={award.title} className="w-24 h-24 object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" />
               <div className="space-y-2">
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-800 leading-tight">{award.title}</p>
                 <p className="text-[10px] text-rose-300 font-medium">{award.year}</p>
@@ -311,32 +299,17 @@ const ProductsSection: React.FC = () => {
           <h2 className="text-6xl font-black text-gray-900 tracking-tighter">OUR PRODUCTS</h2>
           <p className="text-rose-400 text-sm font-medium tracking-[0.3em] uppercase">Sensual Lifestyle For Asian Women</p>
         </div>
-
         <div className="space-y-48">
           {PRODUCTS.map((product, idx) => (
-            <div 
-              key={product.id} 
-              id={product.id}
-              className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-32 scroll-mt-32`}
-            >
-              {/* Entire Card Container is clickable */}
-              <div 
-                className="lg:w-1/2 group relative cursor-pointer" 
-                onClick={() => window.open(TMALL_URL, '_blank')}
-              >
-                <div className="bg-white p-4 rounded-[3.5rem] shadow-2xl group-hover:shadow-rose-100 transition-all duration-700 border border-rose-50">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    className="w-full aspect-square object-cover rounded-[3rem] group-hover:scale-[1.01] transition-transform duration-1000" 
-                  />
+            <div key={product.id} id={product.id} className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-32 scroll-mt-32`}>
+              <div className="lg:w-1/2 group relative cursor-pointer" onClick={() => window.open(TMALL_URL, '_blank')}>
+                <div className="bg-white p-4 rounded-[3.5rem] shadow-2xl border border-rose-50 overflow-hidden">
+                  <img src={product.image} alt={product.name} className="w-full aspect-square object-cover rounded-[3rem] group-hover:scale-105 transition-transform duration-1000" />
                 </div>
-                <div className="absolute -inset-6 bg-rose-100 rounded-[4rem] -z-10 opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-700"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
-                  <span className="bg-white/95 backdrop-blur-sm text-coral px-10 py-4 rounded-full text-sm font-black shadow-2xl tracking-[0.2em]">VIEW DETAILS</span>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                  <span className="bg-white/95 text-coral px-10 py-4 rounded-full text-sm font-black shadow-2xl tracking-[0.2em]">立即购买</span>
                 </div>
               </div>
-              
               <div className="lg:w-1/2 space-y-10 px-4">
                 <div className="space-y-4">
                   <h3 className="text-5xl font-bold text-gray-900 tracking-tight">{product.name}</h3>
@@ -346,14 +319,9 @@ const ProductsSection: React.FC = () => {
                   <p className="text-gray-700 leading-relaxed text-lg font-medium">{product.description}</p>
                   <p className="text-gray-400 leading-loose text-base">{product.descriptionDetail}</p>
                 </div>
-                <a 
-                  href={TMALL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-10 py-4 border-2 border-rose-100 rounded-full text-gray-800 font-bold hover:bg-rose-50 hover:border-coral hover:text-coral transition-all flex items-center space-x-3 group/btn text-center inline-block"
-                >
+                <a href={TMALL_URL} target="_blank" rel="noopener noreferrer" className="px-10 py-4 border-2 border-rose-100 rounded-full text-gray-800 font-bold hover:bg-rose-50 hover:border-coral hover:text-coral transition-all inline-flex items-center space-x-3">
                   <span>在线选购</span>
-                  <ArrowRight size={20} className="group-hover/btn:translate-x-2 transition-transform" />
+                  <ArrowRight size={20} />
                 </a>
               </div>
             </div>
@@ -367,11 +335,8 @@ const ProductsSection: React.FC = () => {
 const Footer: React.FC = () => {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -384,72 +349,44 @@ const Footer: React.FC = () => {
               <p className="text-coral font-bold text-base">广州有限公司</p>
               <p>地址：广州市天河区珠江新城CBD核心商务区<br/>博兴广场 3201室</p>
               <p>电话：020-88888888</p>
-              <div className="flex space-x-5 pt-4">
-                <button onClick={() => alert('关注墨放微信公众号: MofangOfficial')} className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-coral transition-colors duration-300">
-                  <MessageCircle size={18} />
-                </button>
-                <button onClick={() => alert('正在跳转到墨放官方Instagram...')} className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-coral transition-colors duration-300">
-                  <Instagram size={18} />
-                </button>
-                <button onClick={() => alert('正在跳转到墨放官方Twitter...')} className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-coral transition-colors duration-300">
-                  <Twitter size={18} />
-                </button>
-              </div>
             </div>
           </div>
-          
           <div className="space-y-8">
             <h5 className="font-bold text-sm uppercase tracking-widest text-gray-300">品牌探索</h5>
             <ul className="space-y-5 text-sm text-gray-500">
-              <li><button onClick={() => scrollToSection('about')} className="hover:text-coral transition-colors text-left">关于墨放</button></li>
-              <li><button onClick={() => scrollToSection('timeline')} className="hover:text-coral transition-colors text-left">发展历程</button></li>
-              <li><button onClick={() => alert('查看最新品牌月报...')} className="hover:text-coral transition-colors text-left">企业动态</button></li>
-              <li><button onClick={() => alert('墨放2024秋季校园招聘进行中...')} className="hover:text-coral transition-colors text-left">人才招聘</button></li>
+              <li><button onClick={() => scrollToSection('about')} className="hover:text-coral transition-colors">关于墨放</button></li>
+              <li><button onClick={() => scrollToSection('timeline')} className="hover:text-coral transition-colors">发展历程</button></li>
+              <li><button onClick={() => alert('跳转到官网动态...')} className="hover:text-coral transition-colors">企业动态</button></li>
             </ul>
           </div>
-
           <div className="space-y-8">
             <h5 className="font-bold text-sm uppercase tracking-widest text-gray-300">热门产品</h5>
             <ul className="space-y-5 text-sm text-gray-500">
-              <li><button onClick={() => scrollToSection('doudouniao')} className="hover:text-coral transition-colors text-left">逗豆鸟系列</button></li>
-              <li><button onClick={() => scrollToSection('xiaohaibao')} className="hover:text-coral transition-colors text-left">小海豹系列</button></li>
-              <li><button onClick={() => scrollToSection('products')} className="hover:text-coral transition-colors text-left">所有产品目录</button></li>
-              <li><button onClick={() => alert('售后在线咨询 9:00 - 18:00...')} className="hover:text-coral transition-colors text-left">售后政策</button></li>
+              <li><button onClick={() => scrollToSection('doudouniao')} className="hover:text-coral transition-colors">逗豆鸟系列</button></li>
+              <li><button onClick={() => scrollToSection('xiaohaibao')} className="hover:text-coral transition-colors">小海豹系列</button></li>
             </ul>
           </div>
-
           <div id="anti-counterfeit" className="space-y-8 scroll-mt-24">
             <h5 className="font-bold text-sm uppercase tracking-widest text-gray-300">防伪查询</h5>
             <div className="text-sm text-gray-500 leading-relaxed space-y-6">
-              <p>官方渠道购买产品均贴有墨放专属防伪标签，保障您的正品权益。</p>
-              <p>可通过扫描包装底部二维码或输入16位防伪码进行在线查询验证。</p>
-              <button 
-                onClick={() => alert('正在开启墨放防伪查询系统，请稍候...')}
-                className="bg-white/5 border border-white/20 px-8 py-3.5 rounded-full hover:bg-coral hover:border-coral hover:text-white transition-all w-full font-bold"
-              >
-                进入查询系统
-              </button>
+              <p>官方渠道购买产品均贴有墨放专属防伪标签。</p>
+              <button onClick={() => alert('跳转到防伪查询系统...')} className="bg-white/5 border border-white/20 px-8 py-3.5 rounded-full hover:bg-coral hover:border-coral transition-all w-full font-bold">立即查询</button>
             </div>
           </div>
         </div>
       </div>
-      
-      <div className="py-12 flex flex-col md:flex-row justify-center items-center gap-6 text-[11px] text-gray-600 font-medium tracking-widest">
-        <a href={TMALL_URL} target="_blank" rel="noopener noreferrer" className="hover:text-coral transition-colors">TMALL 天猫官方店</a>
+      <div className="py-12 flex flex-col md:flex-row justify-center items-center gap-6 text-[11px] text-gray-600 font-medium tracking-widest uppercase">
+        <a href={TMALL_URL} target="_blank" rel="noopener noreferrer">天猫官方旗舰店</a>
         <span className="hidden md:inline text-white/10">|</span>
-        <span>© 2024 MOFANG LIFESTYLE ALL RIGHTS RESERVED</span>
-        <span className="hidden md:inline text-white/10">|</span>
-        <span className="uppercase">粤ICP备2020097423号</span>
+        <span>© 2024 MOFANG LIFESTYLE | 粤ICP备2020097423号</span>
       </div>
     </footer>
   );
 };
 
-// --- Main App Component ---
-
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen selection:bg-rose-200 selection:text-coral bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
       <main>
         <Hero />
